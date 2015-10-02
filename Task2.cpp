@@ -24,11 +24,20 @@ threeNumbers myMax3numbers(int* arrayofnumbers, int size)
 {
 	threeNumbers mymax3numbers;
 	bubble_sort(arrayofnumbers, size);
-	if (arrayofnumbers[0] * arrayofnumbers[1]>arrayofnumbers[size - 2] * arrayofnumbers[size - 3])
+	if (arrayofnumbers[size - 1] > 0)
 	{
-		mymax3numbers.n1 = arrayofnumbers[size - 1];
-		mymax3numbers.n2 = arrayofnumbers[0];
-		mymax3numbers.n3 = arrayofnumbers[1];
+		if (arrayofnumbers[0] * arrayofnumbers[1]>arrayofnumbers[size - 2] * arrayofnumbers[size - 3])
+		{
+			mymax3numbers.n1 = arrayofnumbers[size - 1];
+			mymax3numbers.n2 = arrayofnumbers[0];
+			mymax3numbers.n3 = arrayofnumbers[1];
+		}
+		else
+		{
+			mymax3numbers.n1 = arrayofnumbers[size - 1];
+			mymax3numbers.n2 = arrayofnumbers[size - 2];
+			mymax3numbers.n3 = arrayofnumbers[size - 3];
+		}
 	}
 	else
 	{
