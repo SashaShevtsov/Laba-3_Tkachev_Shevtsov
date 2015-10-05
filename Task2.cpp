@@ -47,7 +47,34 @@ threeNumbers myMax3numbers(int* arrayofnumbers, int size)
 	}
 	return mymax3numbers;
 }
+void assert( int size, int* arrayofnumbers, int* arr)
+{ 
+	threeNumbers result = myMax3numbers(arrayofnumbers, size);
+	int ans[3]{ result.n1 , result.n2 , result.n3 };
+
+	bubble_sort(ans, 3);
+	bool right = true;
+	for (int i = 0; i < 3; i++) {
+		if (ans[i] != arr[i])
+			right = false;
+	}
+
+	if (right)
+		cout << "OK" << endl;
+	else
+		cout << "NE OK"<< endl;
+	
+}
+
 int main()
 {
+	int arr1[]{ 1,2,3,4,5,6 }, ans1[]{ 4,5,6 };
+	int arr2[]{ 2,4,1,5 }, ans2[]{ 2,4,5 };
+	int arr3[]{ 1,1,1,2,-43,3,6,7,34,2 }, ans3[]{ 6,7,34 };
+	int arr4[]{ -1,2,3,4,-5,-6,4 }, ans4[]{ -6, -5, 4 };
+	assert(6, arr1, ans1);
+	assert(4, arr2, ans2);
+	assert(10, arr3, ans3);
+	assert(7, arr4, ans4);
 	return 0;
 }
